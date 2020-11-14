@@ -1,4 +1,5 @@
 var Users = require("../models/users");
+const passport = require("passport");
 
 // Display detail page for a specific User.
 exports.user_detail = function (req, res) {
@@ -20,4 +21,22 @@ exports.user_create_post = function (req, res, next) {
         // Successful - redirect to new game record.
         res.redirect(user.url);
     })
+};
+
+exports.user_login_post = passport.authenticate("local",{
+  successRedirect: "/users/success",
+  failureRedirect: "/users/failure"
+})
+
+exports.user_login_success = function (req, res) {
+  res.send("NOT IMPLEMENTED: LOGIN SUCCESS: ");
+};
+
+exports.user_login_failure = function (req, res) {
+  res.send("NOT IMPLEMENTED: LOGIN FAILURE: ");
+};
+
+exports.user_logout = function (req, res) {
+  req.logout();
+  res.redirect("/")
 };

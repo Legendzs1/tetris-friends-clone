@@ -26,9 +26,9 @@ function SignUp(props){
                 password
             })
         })
-        .then(res= () => {
-            location.replace(`/user/${username}`)
-        })
+        //.then(() => {
+            //return <Redirect to='/user/${username}' />
+        //})
 
         //TODO FIX THE UNDEFINED
         //HAVE IT ROUTE TO THE USER's PAGE THEN SHOW
